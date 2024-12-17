@@ -1,0 +1,66 @@
+.elements {
+  max-width: 880px;
+  margin: 0 auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  column-gap: 17px;
+  row-gap: 20px;
+}
+
+.element {
+  background-color: #ffffff;
+  border-radius: 10px;
+  max-height: 361px;
+  max-width: 282px;
+}
+
+.element__image {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.element__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 15px 31px 21px;
+}
+.element__title {
+  color: #000000;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  text-align: left;
+  margin: 0;
+  max-width: 230px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.element__image-heart:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.element__image-heart:active {
+  background-image: url(../images/Union.png);
+  opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .elements {
+    max-width: 581px;
+    grid-template-columns: repeat(2, 282px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .elements {
+    max-width: 282px;
+    grid-template-columns: 1fr;
+  }
+}

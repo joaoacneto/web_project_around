@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Joao Neto" />
+    <meta name="description" content="Sprint 7 - JavaScript basico" />
+    <meta name="keywords" content="HTML, CSS, js" />
+    <link rel="stylesheet" href="../pages/index.css" />
+    <link rel="icon" href="./1f47d.svg" />
+    <title>js basico</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/Vector.png"
+          alt="logo around the US"
+        />
+      </header>
+      <main class="content">
+        <div class="popup">
+          <div class="popup__container">
+            <button class="popup__close-button">
+              <img
+                src="./images/closeicon.png"
+                alt="x para fechar o popup"
+                class="popup__close"
+              />
+            </button>
+            <h3 class="popup__title">Editar perfil</h3>
+            <form class="popup__form" name="signup">
+              <input
+                type="text"
+                class="popup__name-input"
+                name="name"
+                placeholder="Nome"
+              />
+              <input
+                type="text"
+                class="popup__title-input"
+                name="title"
+                placeholder="Sobre mim"
+              />
+              <button class="popup__save-button" type="submit">Salvar</button>
+            </form>
+          </div>
+        </div>
+        <section class="profile">
+          <div class="profile__content">
+            <div class="profile__content-image">
+              <img
+                src="./images/avatar.png"
+                alt="Foto do Jacquinho"
+                class="profile__picture"
+              />
+            </div>
+            <div class="profile__content-info">
+              <div class="profile__content-header">
+                <h1 class="profile__content-name">Jacques Cousteau</h1>
+                <img
+                  src="./images/Edit.png"
+                  alt="Botao de editar"
+                  class="profile__content-edit"
+                />
+              </div>
+
+              <p class="profile__content-job">Explorador</p>
+            </div>
+            <div class="profile__add">
+              <button class="profile__add-button" type="button">+</button>
+            </div>
+          </div>
+        </section>
+        <section class="elements">
+          <div class="element">
+            <img
+              src="./images/foto1.jpeg"
+              alt="foto de yosemite"
+              class="element__image"
+            />
+            <div class="element__info">
+              <p class="element__title">Vale de Yosemite</p>
+              <img
+                src="./images/Group.svg"
+                alt="imagem do coraçao"
+                class="element__image-heart"
+              />
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/foto2.jpeg"
+              alt="lago Louise"
+              class="element__image"
+            />
+            <div class="element__info">
+              <p class="element__title">Lago Louise</p>
+              <img
+                src="./images/Group.svg"
+                alt="imagem do coraçao"
+                class="element__image-heart"
+              />
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/foto3.jpeg"
+              alt="foto de Montanhas Carentes"
+              class="element__image"
+            />
+            <div class="element__info">
+              <p class="element__title">Montanhas Carentes do brasil</p>
+              <img
+                src="./images/Group.svg"
+                alt="imagem do coraçao"
+                class="element__image-heart"
+              />
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/foto4.jpeg"
+              alt="foto de Latemar"
+              class="element__image"
+            />
+            <div class="element__info">
+              <p class="element__title">Latemar</p>
+              <img
+                src="./images/Group.svg"
+                alt="imagem do coraçao"
+                class="element__image-heart"
+              />
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/foto5.jpeg"
+              alt="foto de Parque Nacional"
+              class="element__image"
+            />
+            <div class="element__info">
+              <p class="element__title">Parque Nacional de Itatiaia</p>
+              <img
+                src="./images/Group.svg"
+                alt="imagem do coraçao"
+                class="element__image-heart"
+              />
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="./images/foto6.jpeg"
+              alt="foto de Lago di Braies"
+              class="element__image"
+            />
+            <div class="element__info">
+              <p class="element__title">Lago di Braies</p>
+              <img
+                src="./images/Group.svg"
+                alt="imagem do coraçao"
+                class="element__image-heart"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">© 2024 Around The U.S.</footer>
+      <script src="./scripts/teste.js"></script>
+    </div>
+  </body>
+</html>
+
+<!-- problema com relaçao a linha branca embaixo das imagens e ver pq ta aparecendo barra de rolagem-->

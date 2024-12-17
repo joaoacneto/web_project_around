@@ -1,0 +1,24 @@
+.header {
+  max-width: 880px;
+  margin: 45px auto 40px;
+  /* padding: 45px 0 0; */
+  /* display: flex; */
+  border-bottom: solid 1px #545454;
+}
+.header__logo {
+  padding-bottom: 41px;
+  max-width: 173px;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 320px;
+    margin: 28px auto 42px;
+  }
+
+  .header__logo {
+    content: url(../images/minilogo.png);
+    margin: 28px 167px 32px 27px;
+    padding: 0;
+  }
+}
