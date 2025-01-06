@@ -1,25 +1,22 @@
-.popup {
+.add {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-
   width: 100%;
   height: 100vh;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
-
-  /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; */
 }
-.popup__opened {
+.add__opened {
   display: flex;
   justify-content: center;
 }
 
-.popup__container {
+.add__container {
   background-color: white;
   color: black;
   width: 430px;
@@ -29,7 +26,7 @@
   border-radius: 10px;
 }
 
-.popup__title {
+.add__title {
   max-width: 330px;
   margin-top: 34px;
   margin-left: 36px;
@@ -40,7 +37,7 @@
   line-height: 29.05px;
   text-align: left;
 }
-.popup__form {
+.add__form {
   display: flex;
   flex-direction: column;
   margin-left: 36px;
@@ -48,7 +45,7 @@
   margin-top: 54px;
 }
 
-.popup__name-input {
+.add__name-input {
   /* margin-top: 54px; */
   margin-bottom: 29.74px;
   box-shadow: 0 0 0 0;
@@ -61,7 +58,7 @@
   text-align: left;
   padding-bottom: 13.26px;
 }
-.popup__title-input {
+.add__url-input {
   margin-bottom: 48px;
   border: 0 none;
   border-bottom: 1px solid #00000020;
@@ -73,7 +70,7 @@
   padding-bottom: 13.34px;
 }
 
-.popup__save-button {
+.add__save-button {
   /* margin-bottom: 36.51px; */
   width: 358px;
   height: 50.15px;
@@ -86,11 +83,11 @@
   text-align: center;
   cursor: pointer;
 }
-.popup__save-button:hover {
+.add__save-button:hover {
   opacity: 80%;
 }
 
-.popup__close-button {
+.add__close-button {
   background-color: transparent;
   color: rgb(152, 37, 37);
   font-size: 40px;
@@ -102,53 +99,51 @@
   width: 40px;
   height: 40px;
 }
-.popup__close-button:hover {
+.add__close-button:hover {
   opacity: 0.5;
 }
 
-/* diminuir o popup pra tamanho pequeno */
-
 @media screen and (max-width: 768px) {
-  .popup {
+  .add {
     width: 100%;
   }
-  .popup__container {
+  .add__container {
     width: 282px;
     height: 322px;
     top: 123px;
   }
 
-  .popup__title {
+  .add__title {
     margin: 25px 22px 0 22px;
   }
-  .popup__form {
+  .add__form {
     margin-right: 22px;
     margin-left: 22px;
   }
 
-  .popup__name-input {
+  .add__name-input {
     padding-bottom: 9px;
   }
-  .popup__title-input {
+  .add__title-input {
     margin-bottom: 46px;
     padding-bottom: 9px;
   }
-  .popup__save-button {
+  .add__save-button {
     width: 238px;
     height: 46px;
     padding: 0;
   }
-  .popup__save-button {
+  .add__save-button {
     font-size: 14px;
     line-height: 16.94px;
   }
 
-  .popup__close-button {
+  .add__close-button {
     top: -50px;
     right: 0px;
   }
-  .popup__close {
-    width: 26px;
-    height: 26px;
-  }
+}
+.add__close {
+  width: 26px;
+  height: 26px;
 }

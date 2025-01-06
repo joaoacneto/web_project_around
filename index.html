@@ -47,6 +47,35 @@
             </form>
           </div>
         </div>
+        <!-- -------------------novo----------------- -->
+        <div class="add">
+          <div class="add__container">
+            <button class="add__close-button">
+              <img
+                src="./images/closeicon.png"
+                alt="x para fechar o popup"
+                class="add__close"
+              />
+            </button>
+            <h3 class="add__title">Novo local</h3>
+            <form class="add__form" name="signup">
+              <input
+                type="text"
+                class="add__name-input"
+                name="name"
+                placeholder="Título"
+              />
+              <input
+                type="text"
+                class="add__url-input"
+                name="URL"
+                placeholder="Link de Imagem"
+              />
+              <button class="add__save-button" type="submit">Criar</button>
+            </form>
+          </div>
+        </div>
+        <!-- ------------- //novo ----------------- -->
         <section class="profile">
           <div class="profile__content">
             <div class="profile__content-image">
@@ -74,7 +103,8 @@
           </div>
         </section>
         <section class="elements">
-          <div class="element">
+          <!-- ----------- retirei os cards ------------ -->
+          <!-- <div class="element">
             <img
               src="./images/foto1.jpeg"
               alt="foto de yosemite"
@@ -163,7 +193,18 @@
                 class="element__image-heart"
               />
             </div>
+          </div> -->
+          <!-- ---------- popup da imagem ampliada -------- -->
+          <div class="image__popup">
+            <div class="image__popup-content">
+              <img src="" alt="" class="image__popup-image" />
+              <p class="image__popup-subtitle"></p>
+              <button class="image__popup-close-button">
+                <img src="./images/closeicon.png" alt="x para fechar o popup" />
+              </button>
+            </div>
           </div>
+          <!-- ----------- fim do popup da imagem ampliada ----------- -->
         </section>
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
