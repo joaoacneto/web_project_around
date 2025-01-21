@@ -47,7 +47,7 @@
 
 .add__name-input {
   /* margin-top: 54px; */
-  margin-bottom: 29.74px;
+  margin-bottom: 5px;
   box-shadow: 0 0 0 0;
   border: 0 none;
   border-bottom: 1px solid #00000020;
@@ -58,8 +58,13 @@
   text-align: left;
   padding-bottom: 13.26px;
 }
+
+.add__name-input:focus {
+  outline: none;
+}
+
 .add__url-input {
-  margin-bottom: 48px;
+  margin-bottom: 5px;
   border: 0 none;
   border-bottom: 1px solid #00000020;
   font-family: Inter;
@@ -68,6 +73,10 @@
   line-height: 16.94px;
   text-align: left;
   padding-bottom: 13.34px;
+}
+
+.add__url-input {
+  outline: none;
 }
 
 .add__save-button {
@@ -101,6 +110,30 @@
 }
 .add__close-button:hover {
   opacity: 0.5;
+}
+
+.add__msg-error {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+  color: #ff0000;
+  height: 17px;
+  margin-top: 0;
+  margin-bottom: 9.34px;
+}
+
+.add__msg-title {
+  margin-bottom: 9.34px;
+  height: 17px;
+  margin-top: 0;
+}
+
+.add__save-button:disabled {
+  background-color: white;
+  color: #000000;
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {

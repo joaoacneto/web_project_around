@@ -13,6 +13,7 @@ editButton.addEventListener("click", function () {
   popup.classList.add("popup__opened");
   popupNameInput.value = profileName.textContent;
   popupTitleInput.value = profileJob.textContent;
+  popupSaveButton.disabled = true;
 });
 
 closeButton.addEventListener("click", function () {
@@ -66,17 +67,16 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
-//--
-// const cardHeart = document.createElement("img");
-// cardHeart.classList.add("element__image-heart");
-// cardHeart.src = "./images/Group.svg";
-// cardHeart.alt = "imagem do coração";
-// //--
+
+// --- Sprint 9 novas conts ---
+
+const imagePopup = document.querySelector(".image__popup");
 
 // --- Para abrir e fechar o popup add ---
 
 addButton.addEventListener("click", function () {
   addPopup.classList.add("add__opened");
+  addSaveButton.disabled = true;
 });
 
 addCloseButton.addEventListener("click", function () {
@@ -197,4 +197,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     closeImagePopup();
   });
+});
+
+// --- Fechar popups apertando esc ---
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    addPopup.classList.remove("add__opened");
+    popup.classList.remove("popup__opened");
+    imagePopup.style.display = "none"; // não está funciondo
+    popup.querySelector(".popup__form").reset();
+    addPopup.querySelector(".add__form").reset();
+  }
+});
+
+// -- Fechar popups clicando fora deles ---
+
+popup.addEventListener("click", function (evt) {
+  if (evt.target == popup) {
+    popup.classList.remove("popup__opened");
+  }
+});
+
+addPopup.addEventListener("click", function (evt) {
+  if (evt.target == addPopup) {
+    addPopup.classList.remove("add__opened");
+  }
 });
