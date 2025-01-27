@@ -46,8 +46,9 @@
                 required
                 minlength="2"
                 maxlength="40"
+                id="input-name"
               />
-              <p class="popup__msg-error" id="mensagem"></p>
+              <p class="popup__msg-error name__error" id="input-name-error"></p>
 
               <input
                 type="text"
@@ -57,8 +58,12 @@
                 required
                 minlength="2"
                 maxlength="200"
+                id="input-about"
               />
-              <p class="popup__msg-error popup__msg-title" id="outramsg"></p>
+              <p
+                class="popup__msg-error popup__msg-title title__error"
+                id="input-about-error"
+              ></p>
               <button class="popup__save-button popup__button" type="submit">
                 Salvar
               </button>
@@ -76,7 +81,7 @@
               />
             </button>
             <h3 class="add__title">Novo local</h3>
-            <form class="add__form" name="signup" novalidate>
+            <form class="add__form popup__form" name="signup" novalidate>
               <input
                 type="text"
                 class="add__name-input popup__input"
@@ -85,18 +90,19 @@
                 required
                 maxlength="30"
                 minlength="2"
+                id="input-title"
               />
-              <p class="add__msg-error" id="msg"></p>
+              <p class="add__msg-error" id="input-title-error"></p>
               <input
-                type="text"
                 class="add__url-input popup__input"
                 name="URL"
                 placeholder="Link de Imagem"
                 type="url"
                 required
+                id="input-url"
               />
-              <p class="add__msg-error add__msg-title" id="urlmsg"></p>
-              <button class="add__save-button popup__button" type="submit">
+              <p class="add__msg-error add__msg-title" id="input-url-error"></p>
+              <button class="popup__save-button popup__button" type="submit">
                 Criar
               </button>
             </form>

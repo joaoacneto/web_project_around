@@ -83,7 +83,6 @@
 }
 
 .popup__save-button {
-  /* margin-bottom: 36.51px; */
   width: 358px;
   height: 50.15px;
   background-color: black;
@@ -98,24 +97,12 @@
 .popup__save-button:hover {
   opacity: 80%;
 }
-
-/* .popup__button {
-  width: 358px;
-  height: 50.15px;
-  background-color: black;
-  color: white;
-  font-family: Inter;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.78px;
-  text-align: center;
-  cursor: pointer;
-
+.popup__save-button:disabled {
+  background-color: white;
+  color: #000000;
+  opacity: 0.2;
+  cursor: not-allowed;
 }
-
-.popup__button:hover{
-  opacity: 80%
-} */
 
 .popup__close-button {
   background-color: transparent;
@@ -156,13 +143,6 @@
   margin-bottom: 9.34px;
   height: 17px;
   margin-top: 5px;
-}
-
-.popup__save-button:disabled {
-  background-color: white;
-  color: #000000;
-  opacity: 0.2;
-  cursor: not-allowed;
 }
 
 @media screen and (max-width: 768px) {
