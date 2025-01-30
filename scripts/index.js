@@ -1,4 +1,4 @@
-// --- Sprint 7 ---
+// --- Sprint 7 --- xxx
 
 const popup = document.querySelector(".popup");
 const editButton = document.querySelector(".profile__content-edit");
