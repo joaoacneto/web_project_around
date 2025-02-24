@@ -15,6 +15,6 @@ Foram adicionadas mais funções no script da página. Elas foram:
 - Possibilidade de clicar para ampliar a imagem do card.
 
 Tripleten Sprint 9 e 10
-Refatoração do código javascript para torná-lo mais flexível, escalável e reutilizável. Agora com implementação de classes Card e FormValidator.
+Refatoração do código javascript para torná-lo mais flexível, escalável e reutilizável. Agora com implementação de classes Card e FormValidator
 
 Github pages: https://joaoacneto.github.io/web_project_around/

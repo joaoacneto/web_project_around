@@ -1,10 +1,13 @@
+// Card.js
+
 export class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._template = document
       .querySelector(templateSelector)
       .content.querySelector(".element");
+    this._handleCardClick = handleCardClick;
   }
 
   _createCardElement() {
@@ -31,24 +34,12 @@ export class Card {
     evt.target.closest(".element").remove();
   };
 
-  _handleImageClick = (evt) => {
-    const imagePopup = document.querySelector(".image__popup");
-    const imagePopupImage = imagePopup.querySelector(".image__popup-image");
-    const imagePopupSubtitle = imagePopup.querySelector(
-      ".image__popup-subtitle"
-    );
-
-    imagePopupImage.src = evt.target.src;
-    imagePopupImage.alt = evt.target.alt;
-    imagePopupSubtitle.textContent = this._name;
-
-    openPopup(imagePopup);
-  };
-
   _setEventListeners(cardHeart, trashIcon, cardImage) {
     cardHeart.addEventListener("click", this._handleHeartClick);
     trashIcon.addEventListener("click", this._handleTrashClick);
-    cardImage.addEventListener("click", this._handleImageClick);
+    cardImage.addEventListener("click", () =>
+      this._handleCardClick(this._link, this._name)
+    );
   }
 
   createCard() {

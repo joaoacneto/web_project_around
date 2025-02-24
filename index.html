@@ -27,7 +27,7 @@
         />
       </header>
       <main class="content">
-        <div class="popup">
+        <div class="popup" id="edit-profile">
           <div class="popup__container">
             <button class="popup__close-button">
               <img
@@ -71,20 +71,20 @@
           </div>
         </div>
         <!-- -------------------novo----------------- -->
-        <div class="add">
-          <div class="add__container">
-            <button class="add__close-button">
+        <div class="popup" id="add-card">
+          <div class="popup__container">
+            <button class="popup__close-button">
               <img
                 src="./images/closeicon.png"
                 alt="x para fechar o popup"
-                class="add__close"
+                class="popup__close"
               />
             </button>
-            <h3 class="add__title">Novo local</h3>
-            <form class="add__form popup__form" name="signup" novalidate>
+            <h3 class="popup__title">Novo local</h3>
+            <form class="popup__form popup__form" name="signup" novalidate>
               <input
                 type="text"
-                class="add__name-input popup__input"
+                class="popup__name-input popup__input"
                 name="name"
                 placeholder="Título"
                 required
@@ -92,18 +92,21 @@
                 minlength="2"
                 id="input-title"
               />
-              <p class="add__msg-error" id="input-title-error"></p>
+              <p class="popup__msg-error" id="input-title-error"></p>
               <input
-                class="add__url-input popup__input"
+                class="popup__url-input popup__input"
                 name="URL"
                 placeholder="Link de Imagem"
                 type="url"
                 required
                 id="input-url"
               />
-              <p class="add__msg-error add__msg-title" id="input-url-error"></p>
+              <p
+                class="popup__msg-error popup__msg-title"
+                id="input-url-error"
+              ></p>
               <button
-                class="popup__save-button add__save-button popup__button"
+                class="popup__save-button popup__save-button popup__button"
                 type="submit"
               >
                 Criar
@@ -173,6 +176,13 @@
       </template>
 
       <script type="module" src="./scripts/index.js"></script>
+      <script type="module" src="./scripts/Card.js"></script>
+      <script type="module" src="./scripts/FormValidator.js"></script>
+      <script type="module" src="./scripts/Section.js"></script>
+      <script type="module" src="./scripts/Popup.js"></script>
+      <script type="module" src="./scripts/PopupWithImage.js"></script>
+      <script type="module" src="./scripts/PopupWithForm.js"></script>
+      <script type="module" src="./scripts/UserInfo.js"></script>
     </div>
   </body>
 </html>

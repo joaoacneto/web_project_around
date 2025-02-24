@@ -5,18 +5,17 @@
   left: 0;
   bottom: 0;
   right: 0;
-
   width: 100%;
   height: 100vh;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
-
-  /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; */
 }
+
 .popup__opened {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .popup__container {
@@ -25,7 +24,7 @@
   width: 430px;
   height: 330px;
   position: relative;
-  top: 192px;
+  top: auto;
   border-radius: 10px;
 }
 
@@ -40,6 +39,7 @@
   line-height: 29.05px;
   text-align: left;
 }
+
 .popup__form {
   display: flex;
   flex-direction: column;
@@ -49,8 +49,7 @@
 }
 
 .popup__name-input {
-  /* margin-top: 54px; */
-  /* margin-bottom: 29.74px; */
+  margin-bottom: 5px;
   box-shadow: 0 0 0 0;
   border: 0 none;
   border-bottom: 1px solid #00000020;
@@ -67,7 +66,7 @@
 }
 
 .popup__title-input {
-  /* margin-bottom: 48px; */
+  margin-bottom: 5px;
   border: 0 none;
   border-bottom: 1px solid #00000020;
   font-family: Inter;
@@ -94,9 +93,11 @@
   text-align: center;
   cursor: pointer;
 }
+
 .popup__save-button:hover {
   opacity: 80%;
 }
+
 .popup__save-button:disabled {
   background-color: white;
   color: #000000;
@@ -116,6 +117,7 @@
   width: 40px;
   height: 40px;
 }
+
 .popup__close-button:hover {
   opacity: 0.5;
 }
@@ -149,6 +151,7 @@
   .popup {
     width: 100%;
   }
+
   .popup__container {
     width: 282px;
     height: 322px;
@@ -158,6 +161,7 @@
   .popup__title {
     margin: 25px 22px 0 22px;
   }
+
   .popup__form {
     margin-right: 22px;
     margin-left: 22px;
@@ -166,16 +170,16 @@
   .popup__name-input {
     padding-bottom: 9px;
   }
+
   .popup__title-input {
     margin-bottom: 5px;
     padding-bottom: 9px;
   }
+
   .popup__save-button {
     width: 238px;
     height: 46px;
     padding: 0;
-  }
-  .popup__save-button {
     font-size: 14px;
     line-height: 16.94px;
   }
@@ -184,11 +188,29 @@
     top: -50px;
     right: 0px;
   }
+
   .popup__close {
     width: 26px;
     height: 26px;
   }
+
   .popup__msg-title {
     margin-bottom: 30px;
   }
+}
+
+.popup__url-input {
+  margin-bottom: 5px;
+  border: 0 none;
+  border-bottom: 1px solid #00000020;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: left;
+  padding-bottom: 13.34px;
+}
+
+.popup__url-input:focus {
+  outline: none;
 }

@@ -1,9 +1,11 @@
+// utils.js
+
 export function openPopup(popupElement) {
-  popupElement.classList.add("popup__opened", "add__opened");
+  popupElement.classList.add("popup__opened");
 }
 
 export function closePopup(popupElement) {
-  popupElement.classList.remove("popup__opened", "add__opened");
+  popupElement.classList.remove("popup__opened");
 }
 
 export function addEventListeners() {
