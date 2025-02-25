@@ -14,7 +14,10 @@ Foram adicionadas mais funções no script da página. Elas foram:
 - Botão "+" abrindo um pop-up para adicionar um novo card colocando nome e link para imagem do card.
 - Possibilidade de clicar para ampliar a imagem do card.
 
-Tripleten Sprint 9 e 10
+Sprint 9 e 10
 Refatoração do código javascript para torná-lo mais flexível, escalável e reutilizável. Agora com implementação de classes Card e FormValidator
+
+Sprint 11
+Continuação da refatoração do código na qual foram adicionadas as classes Section, Popup, PopupWithForm, PopupWithImage, e UserInfo ao projeto.
 
 Github pages: https://joaoacneto.github.io/web_project_around/

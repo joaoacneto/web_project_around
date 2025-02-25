@@ -45,7 +45,8 @@ const popupWithImage = new PopupWithImage(".image__popup");
 popupWithImage.setEventListeners();
 
 const handleCardClick = (link, name) => {
-  popupWithImage.open(link, name);
+  console.log("entrou");
+  popupWithImage.open(name, link);
 };
 
 const cardSection = new Section(
