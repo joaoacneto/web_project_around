@@ -28,6 +28,34 @@ api
     console.log(err); // registra o erro no console
   });
 
+api
+  .setInfo("tchau", "oiiiii")
+  .then((result) => {
+    console.log(result);
+    userInfo.setUserInfo({
+      name: result.name,
+      job: result.about,
+      avatar: result.avatar,
+    });
+  })
+  .catch((err) => {
+    console.log(err); // registra o erro no console
+  });
+
+api
+  .getInfo()
+  .then((result) => {
+    console.log(result);
+    userInfo.setUserInfo({
+      name: result.name,
+      job: result.about,
+      avatar: result.avatar,
+    });
+  })
+  .catch((err) => {
+    console.log(err); // registra o erro no console
+  });
+
 const validate = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -60,6 +88,7 @@ editFormValidator.enableValidation();
 const userInfo = new UserInfo({
   nameSelector: ".profile__content-name",
   jobSelector: ".profile__content-job",
+  avatarSelector: ".profile__picture",
 });
 
 const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
