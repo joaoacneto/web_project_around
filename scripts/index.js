@@ -29,20 +29,6 @@ api
   });
 
 api
-  .setInfo("tchau", "oiiiii")
-  .then((result) => {
-    console.log(result);
-    userInfo.setUserInfo({
-      name: result.name,
-      job: result.about,
-      avatar: result.avatar,
-    });
-  })
-  .catch((err) => {
-    console.log(err); // registra o erro no console
-  });
-
-api
   .getInfo()
   .then((result) => {
     console.log(result);
@@ -53,7 +39,7 @@ api
     });
   })
   .catch((err) => {
-    console.log(err); // registra o erro no console
+    console.log(err);
   });
 
 const validate = {
@@ -92,10 +78,20 @@ const userInfo = new UserInfo({
 });
 
 const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
-  userInfo.setUserInfo({
-    name: formData.name,
-    job: formData.title,
-  });
+  console.log(formData);
+  api
+    .setInfo(formData.name, formData.title)
+    .then((result) => {
+      console.log(result);
+      userInfo.setUserInfo({
+        name: result.name,
+        job: result.about,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   popupEditProfile.close();
 });
 popupEditProfile.setEventListeners();
