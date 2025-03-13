@@ -74,7 +74,7 @@ editFormValidator.enableValidation();
 const userInfo = new UserInfo({
   nameSelector: ".profile__content-name",
   jobSelector: ".profile__content-job",
-  avatarSelector: ".profile__picture",
+  // avatarSelector: ".profile__picture",
 });
 
 const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
@@ -97,16 +97,21 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
 popupEditProfile.setEventListeners();
 
 const popupAddCard = new PopupWithForm("#add-card", (formData) => {
-  console.log(formData);
-  const newCard = new Card(
-    {
-      name: formData.name,
-      link: formData.URL,
-    },
-    "#card-template",
-    handleCardClick
-  );
-  cardSection.addItem(newCard.createCard());
+  console.log(formData.name, formData.URL);
+  api.addNewCard(formData.name, formData.URL).then((result) => {
+    console.log(result);
+    const newCard = new Card(
+      {
+        name: result.name,
+        link: result.link,
+        isLiked: result.isLiked,
+      },
+      "#card-template",
+      handleCardClick
+    );
+    cardSection.addItem(newCard.createCard());
+  });
+
   popupAddCard.close();
 });
 popupAddCard.setEventListeners();

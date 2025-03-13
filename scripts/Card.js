@@ -1,7 +1,10 @@
+import { api } from "./Api.js";
+
 export class Card {
   constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
+    this._isLiked = data.isLiked;
     this._template = document
       .querySelector(templateSelector)
       .content.querySelector(".element");
@@ -18,14 +21,28 @@ export class Card {
     cardImage.src = this._link;
     cardImage.alt = this._name;
     cardTitle.textContent = this._name;
-
+    if (this._isLiked) {
+      cardHeart.classList.toggle("element__image-heart-liked");
+    }
     this._setEventListeners(cardHeart, trashIcon, cardImage);
 
     return cardElement;
   }
 
   _handleHeartClick = (evt) => {
-    evt.target.classList.toggle("element__image-heart-liked");
+    api
+      .setLiked(!this._isLiked)
+      .then((result) => {
+        console.log(result);
+        if (this._isLiked) {
+          evt.target.classList.toggle("element__image-heart-liked");
+        } else {
+          evt.target.classList.toggle("element__image-heart");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   _handleTrashClick = (evt) => {
