@@ -5,16 +5,32 @@ import { PopupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForm.js";
 import { UserInfo } from "./UserInfo.js";
 import { api } from "./Api.js";
+import PopupWithConfirmation from "./PopupWithConfirmation.js";
+
+const handleCardDelete = (card, cardId) => {
+  card.remove();
+  //api.
+};
+const popupWithConfirmation = new PopupWithConfirmation("#delete-card");
+popupWithConfirmation.setEventListeners();
+let cardSection;
 
 api
   .getInitialCards()
   .then((result) => {
     console.log(result);
-    const cardSection = new Section(
+    cardSection = new Section(
       {
         items: result,
         renderer: (cardData) => {
-          const card = new Card(cardData, "#card-template", handleCardClick);
+          const card = new Card(
+            cardData,
+            "#card-template",
+            handleCardClick,
+            (card, cardId) => {
+              popupWithConfirmation.open(card, cardId);
+            }
+          );
           const cardElement = card.createCard();
           cardSection.addItem(cardElement);
         },

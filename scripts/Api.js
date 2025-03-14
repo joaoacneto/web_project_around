@@ -59,14 +59,10 @@ export default class Api {
     });
   }
 
-  setLiked(isLiked) {
-    console.log(isLiked);
-    return fetch(`${this.baseUrl}/cards`, {
-      method: "PATCH",
+  setLiked(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
       headers: this.headers,
-      body: JSON.stringify({
-        isLiked: isLiked,
-      }),
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -74,6 +70,20 @@ export default class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  setDisliked(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  //criar aqui
 }
 
 export const api = new Api({
@@ -83,3 +93,5 @@ export const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+// criar metodo de deletar funçao dentro da api e chamar la no index.js api.deleteCard

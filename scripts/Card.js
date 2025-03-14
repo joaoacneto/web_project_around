@@ -1,14 +1,16 @@
 import { api } from "./Api.js";
 
 export class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor(data, templateSelector, handleCardClick, handleCardDelete) {
     this._name = data.name;
     this._link = data.link;
     this._isLiked = data.isLiked;
+    this._id = data._id;
     this._template = document
       .querySelector(templateSelector)
       .content.querySelector(".element");
     this._handleCardClick = handleCardClick;
+    this._handleCardDelete = handleCardDelete;
   }
 
   _createCardElement() {
@@ -46,7 +48,8 @@ export class Card {
   };
 
   _handleTrashClick = (evt) => {
-    evt.target.closest(".element").remove();
+    // evt.target.closest(".element").remove();
+    this._handleCardDelete(evt.target.closest(".element"), this._id);
   };
 
   _setEventListeners(cardHeart, trashIcon, cardImage) {
