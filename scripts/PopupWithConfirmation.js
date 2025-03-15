@@ -1,4 +1,4 @@
-import { Popup } from "./Popup";
+import { Popup } from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector, handleDeleteCard) {
@@ -10,12 +10,8 @@ export default class PopupWithConfirmation extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._confirmationButton.addEventListener("click", () => {
-      this._handleDeleteCard();
+      this._handleDeleteCard(this._card, this._cardId);
     });
-  }
-
-  handleDeleteCard() {
-    this._handleDeleteCard(this._card, this._cardId);
   }
 
   open(card, cardId) {

@@ -7,18 +7,39 @@ import { UserInfo } from "./UserInfo.js";
 import { api } from "./Api.js";
 import PopupWithConfirmation from "./PopupWithConfirmation.js";
 
+let userId;
+
+api
+  .getInfo()
+  .then((result) => {
+    userId = result._id;
+    userInfo.setUserInfo({
+      name: result.name,
+      job: result.about,
+      avatar: result.avatar,
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 const handleCardDelete = (card, cardId) => {
-  card.remove();
-  //api.
+  api.deleteCard(cardId).then(() => {
+    card.remove();
+    popupWithConfirmation.close();
+  });
 };
-const popupWithConfirmation = new PopupWithConfirmation("#delete-card");
+
+const popupWithConfirmation = new PopupWithConfirmation(
+  "#delete-card",
+  handleCardDelete
+);
 popupWithConfirmation.setEventListeners();
 let cardSection;
 
 api
   .getInitialCards()
   .then((result) => {
-    console.log(result);
     cardSection = new Section(
       {
         items: result,
@@ -29,7 +50,8 @@ api
             handleCardClick,
             (card, cardId) => {
               popupWithConfirmation.open(card, cardId);
-            }
+            },
+            userId
           );
           const cardElement = card.createCard();
           cardSection.addItem(cardElement);
@@ -42,20 +64,6 @@ api
   })
   .catch((err) => {
     console.log(err); // registra o erro no console
-  });
-
-api
-  .getInfo()
-  .then((result) => {
-    console.log(result);
-    userInfo.setUserInfo({
-      name: result.name,
-      job: result.about,
-      avatar: result.avatar,
-    });
-  })
-  .catch((err) => {
-    console.log(err);
   });
 
 const validate = {
@@ -113,20 +121,29 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
 popupEditProfile.setEventListeners();
 
 const popupAddCard = new PopupWithForm("#add-card", (formData) => {
-  console.log(formData.name, formData.URL);
-  api.addNewCard(formData.name, formData.URL).then((result) => {
-    console.log(result);
-    const newCard = new Card(
-      {
-        name: result.name,
-        link: result.link,
-        isLiked: result.isLiked,
-      },
-      "#card-template",
-      handleCardClick
-    );
-    cardSection.addItem(newCard.createCard());
-  });
+  const btnAddSubmit = document.querySelector("#btnAddSubmit");
+  btnAddSubmit.textContent = "Criando...";
+  api
+    .addNewCard(formData.name, formData.URL)
+    .then((result) => {
+      const newCard = new Card(
+        {
+          name: result.name,
+          link: result.link,
+          isLiked: result.isLiked,
+        },
+        "#card-template",
+        handleCardClick,
+        (card, cardId) => {
+          popupWithConfirmation.open(card, cardId);
+        },
+        userId
+      );
+      cardSection.addItem(newCard.createCard());
+    })
+    .finally(() => {
+      btnAddSubmit.textContent = "Criar";
+    });
 
   popupAddCard.close();
 });

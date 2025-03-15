@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Joao Neto" />
-    <meta name="description" content="Sprint 11 />
+    <meta name="description" content="Sprint 11" />
     <meta name="keywords" content="HTML, CSS, js" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,8 +106,9 @@
                 id="input-url-error"
               ></p>
               <button
-                class="popup__save-button popup__save-button popup__button"
+                class="popup__save-button popup__button"
                 type="submit"
+                id="btnAddSubmit"
               >
                 Criar
               </button>
@@ -167,11 +168,60 @@
                 />
               </button>
               <h3 class="popup__title">Tem certeza?</h3>
-              <button class="popup__delete-card">Sim</button>
+              <button
+                class="popup__delete-card popup__save-button popup__button"
+              >
+                Sim
+              </button>
             </div>
           </div>
 
           <!-- ----------- fim do popup da imagem ampliada ----------- -->
+          <!-- -------------------POPUP DO AVATAR----------------- -->
+          <div class="popup" id="add-card">
+            <div class="popup__container">
+              <button class="popup__close-button">
+                <img
+                  src="./images/closeicon.png"
+                  alt="x para fechar o popup"
+                  class="popup__close"
+                />
+              </button>
+              <h3 class="popup__title">Novo local</h3>
+              <form class="popup__form popup__form" name="signup" novalidate>
+                <input
+                  type="text"
+                  class="popup__name-input popup__input"
+                  name="name"
+                  placeholder="Título"
+                  required
+                  maxlength="30"
+                  minlength="2"
+                  id="input-title"
+                />
+                <p class="popup__msg-error" id="input-title-error"></p>
+                <input
+                  class="popup__url-input popup__input"
+                  name="URL"
+                  placeholder="Link de Imagem"
+                  type="url"
+                  required
+                  id="input-url"
+                />
+                <p
+                  class="popup__msg-error popup__msg-title"
+                  id="input-url-error"
+                ></p>
+                <button
+                  class="popup__save-button popup__button"
+                  type="submit"
+                  id="btnAddSubmit"
+                >
+                  Criar
+                </button>
+              </form>
+            </div>
+          </div>
         </section>
       </main>
       <footer class="footer">© 2025 Around The U.S.</footer>
@@ -193,8 +243,7 @@
           />
         </div>
       </template>
-
-      <script type="module" src="./scripts/index.js"></script>
     </div>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
