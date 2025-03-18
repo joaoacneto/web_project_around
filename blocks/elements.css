@@ -45,14 +45,21 @@
   overflow: hidden;
 }
 
+.element__image-heart {
+  background-image: url("../images/Group.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+}
+
 .element__image-heart:hover {
   opacity: 0.5;
   cursor: pointer;
-}
-
-.element__image-heart:active {
-  background-image: url(../images/Union.png);
-  opacity: 1;
 }
 
 .element__image-heart-liked {

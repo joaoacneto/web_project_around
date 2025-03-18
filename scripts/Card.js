@@ -6,7 +6,8 @@ export class Card {
     templateSelector,
     handleCardClick,
     handleCardDelete,
-    userId
+    userId,
+    handleCardLike
   ) {
     this._name = data.name;
     this._link = data.link;
@@ -19,6 +20,7 @@ export class Card {
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
     this._userId = userId;
+    this._handleCardLike = handleCardLike;
   }
 
   _createCardElement() {
@@ -44,19 +46,8 @@ export class Card {
   }
 
   _handleHeartClick = (evt) => {
-    api
-      .setLiked(!this._isLiked)
-      .then((result) => {
-        console.log(result);
-        if (this._isLiked) {
-          evt.target.classList.toggle("element__image-heart-liked");
-        } else {
-          evt.target.classList.toggle("element__image-heart");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    evt.target.classList.toggle("element__image-heart-liked");
+    this._handleCardLike(this._id, this._isLiked);
   };
 
   _handleTrashClick = (evt) => {

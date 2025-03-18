@@ -23,9 +23,24 @@ api
     console.log(err);
   });
 
+const handleCardLike = (cardId, isLiked) => {
+  if (isLiked) {
+    api.setDisliked(cardId).then((result) => {
+      console.log(result);
+    });
+  } else {
+    api.setLiked(cardId).then((result) => {
+      console.log(result);
+    });
+  }
+};
+
 const handleCardDelete = (card, cardId) => {
   api.deleteCard(cardId).then(() => {
+    // const temCerteza = document.querySelector("#temCerteza");
+    // temCerteza.textContent = "Deletando...";
     card.remove();
+    //.finally
     popupWithConfirmation.close();
   });
 };
@@ -51,7 +66,10 @@ api
             (card, cardId) => {
               popupWithConfirmation.open(card, cardId);
             },
-            userId
+            userId,
+            (cardId, isLiked) => {
+              handleCardLike(cardId, isLiked);
+            }
           );
           const cardElement = card.createCard();
           cardSection.addItem(cardElement);
@@ -102,6 +120,8 @@ const userInfo = new UserInfo({
 });
 
 const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
+  const btnEditProfile = document.querySelector("#btnEditProfile");
+  btnEditProfile.textContent = "Salvando...";
   console.log(formData);
   api
     .setInfo(formData.name, formData.title)
@@ -114,6 +134,9 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      btnEditProfile.textContent = "Salvar";
     });
 
   popupEditProfile.close();
@@ -131,13 +154,17 @@ const popupAddCard = new PopupWithForm("#add-card", (formData) => {
           name: result.name,
           link: result.link,
           isLiked: result.isLiked,
+          owner: result.owner,
         },
         "#card-template",
         handleCardClick,
         (card, cardId) => {
           popupWithConfirmation.open(card, cardId);
         },
-        userId
+        userId,
+        (cardId, isLiked) => {
+          handleCardLike(cardId, isLiked);
+        }
       );
       cardSection.addItem(newCard.createCard());
     })

@@ -64,7 +64,11 @@
                 class="popup__msg-error popup__msg-title title__error"
                 id="input-about-error"
               ></p>
-              <button class="popup__save-button popup__button" type="submit">
+              <button
+                id="btnEditProfile"
+                class="popup__save-button"
+                type="submit"
+              >
                 Salvar
               </button>
             </form>
@@ -81,7 +85,7 @@
               />
             </button>
             <h3 class="popup__title">Novo local</h3>
-            <form class="popup__form popup__form" name="signup" novalidate>
+            <form class="popup__form" name="signup" novalidate>
               <input
                 type="text"
                 class="popup__name-input popup__input"
@@ -106,7 +110,7 @@
                 id="input-url-error"
               ></p>
               <button
-                class="popup__save-button popup__button"
+                class="popup__save-button"
                 type="submit"
                 id="btnAddSubmit"
               >
@@ -124,6 +128,7 @@
                 alt="Foto do Jacquinho"
                 class="profile__content-picture"
               />
+              <button class="profile__content-pencil"></button>
             </div>
             <div class="profile__content-info">
               <div class="profile__content-header">
@@ -159,7 +164,7 @@
           </div>
           <!------------ popup trash ------------>
           <div class="popup" id="delete-card">
-            <div class="popup__container">
+            <div class="popup__container-delete">
               <button class="popup__close-button">
                 <img
                   src="./images/closeicon.png"
@@ -167,9 +172,11 @@
                   class="popup__close"
                 />
               </button>
+
               <h3 class="popup__title">Tem certeza?</h3>
               <button
-                class="popup__delete-card popup__save-button popup__button"
+                id="temCerteza"
+                class="popup__delete-card popup__save-button"
               >
                 Sim
               </button>
@@ -178,7 +185,7 @@
 
           <!-- ----------- fim do popup da imagem ampliada ----------- -->
           <!-- -------------------POPUP DO AVATAR----------------- -->
-          <div class="popup" id="add-card">
+          <div class="popup" id="edit-avatar">
             <div class="popup__container">
               <button class="popup__close-button">
                 <img
@@ -189,17 +196,6 @@
               </button>
               <h3 class="popup__title">Novo local</h3>
               <form class="popup__form popup__form" name="signup" novalidate>
-                <input
-                  type="text"
-                  class="popup__name-input popup__input"
-                  name="name"
-                  placeholder="Título"
-                  required
-                  maxlength="30"
-                  minlength="2"
-                  id="input-title"
-                />
-                <p class="popup__msg-error" id="input-title-error"></p>
                 <input
                   class="popup__url-input popup__input"
                   name="URL"
@@ -213,11 +209,11 @@
                   id="input-url-error"
                 ></p>
                 <button
-                  class="popup__save-button popup__button"
+                  class="popup__save-button"
                   type="submit"
-                  id="btnAddSubmit"
+                  id="btnEditAvatar"
                 >
-                  Criar
+                  Salvar
                 </button>
               </form>
             </div>
@@ -230,11 +226,7 @@
           <img class="element__image" src="" alt="" />
           <div class="element__info">
             <p class="element__title"></p>
-            <img
-              class="element__image-heart"
-              src="./images/Group.svg"
-              alt="imagem do coração"
-            />
+            <button class="element__image-heart"></button>
           </div>
           <img
             class="element__delete"

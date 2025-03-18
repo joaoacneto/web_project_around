@@ -27,6 +27,19 @@
   top: auto;
   border-radius: 10px;
 }
+.popup__container-delete {
+  background-color: white;
+  color: black;
+  width: 430px;
+  height: 181px;
+  position: relative;
+  top: auto;
+  border-radius: 10px;
+}
+
+.popup__delete-card {
+  margin: 38px 36px 36px 36px;
+}
 
 .popup__title {
   max-width: 330px;
@@ -156,6 +169,17 @@
     width: 282px;
     height: 322px;
     top: 123px;
+  }
+
+  .popup__container-delete {
+    width: 282px;
+    height: 181px;
+    top: 123px;
+  }
+
+  .popup__delete-card {
+    margin-right: 22px;
+    margin-left: 22px;
   }
 
   .popup__title {
