@@ -16,6 +16,8 @@ api
     userInfo.setUserInfo({
       name: result.name,
       job: result.about,
+    });
+    userInfo.setUserAvatar({
       avatar: result.avatar,
     });
   })
@@ -36,13 +38,18 @@ const handleCardLike = (cardId, isLiked) => {
 };
 
 const handleCardDelete = (card, cardId) => {
-  api.deleteCard(cardId).then(() => {
-    // const temCerteza = document.querySelector("#temCerteza");
-    // temCerteza.textContent = "Deletando...";
-    card.remove();
-    //.finally
-    popupWithConfirmation.close();
-  });
+  const temCerteza = document.querySelector("#temCerteza");
+  temCerteza.textContent = "Deletando...";
+  api
+    .deleteCard(cardId)
+    .then(() => {
+      card.remove();
+
+      popupWithConfirmation.close();
+    })
+    .finally(() => {
+      temCerteza.textContent = "Sim";
+    });
 };
 
 const popupWithConfirmation = new PopupWithConfirmation(
@@ -107,16 +114,22 @@ const editFormValidator = new FormValidator(
 );
 editFormValidator.enableValidation();
 
-// const addFormValidator = new FormValidator(
-//   validate,
-//   document.querySelector(".add__form")
-// );
-// addFormValidator.enableValidation();
+const addFormValidator = new FormValidator(
+  validate,
+  document.querySelector(".add__form")
+);
+addFormValidator.enableValidation();
+
+const avatarFormValidator = new FormValidator(
+  validate,
+  document.querySelector(".avatar__form")
+);
+avatarFormValidator.enableValidation();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__content-name",
   jobSelector: ".profile__content-job",
-  // avatarSelector: ".profile__picture",
+  avatarSelector: ".profile__content-picture",
 });
 
 const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
@@ -142,6 +155,31 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
   popupEditProfile.close();
 });
 popupEditProfile.setEventListeners();
+
+const popupEditAvatar = new PopupWithForm("#edit-avatar", (formData) => {
+  const btnEditAvatar = document.querySelector("#btnEditAvatar");
+  btnEditAvatar.textContent = "Salvando...";
+  api
+    .editAvatar(formData.avatar)
+    .then((result) => {
+      userInfo.setUserAvatar({
+        avatar: result.avatar,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      btnEditAvatar.textContent = "Salvar";
+    });
+
+  popupEditAvatar.close();
+});
+popupEditAvatar.setEventListeners();
+const btnOpenAvatar = document.querySelector(".profile__content-pencil");
+btnOpenAvatar.addEventListener("click", () => {
+  popupEditAvatar.open();
+});
 
 const popupAddCard = new PopupWithForm("#add-card", (formData) => {
   const btnAddSubmit = document.querySelector("#btnAddSubmit");

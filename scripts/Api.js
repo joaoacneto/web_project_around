@@ -95,7 +95,20 @@ export default class Api {
     });
   }
 
-  //criar aqui
+  editAvatar(avatar) {
+    return fetch(`${this.baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        avatar: avatar,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
 }
 
 export const api = new Api({
@@ -105,5 +118,3 @@ export const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
-// criar metodo de deletar funçao dentro da api e chamar la no index.js api.deleteCard
