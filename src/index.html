@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Joao Neto" />
-    <meta name="description" content="Sprint 11 />
+    <meta name="description" content="Sprint 12" />
     <meta name="keywords" content="HTML, CSS, js" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +64,11 @@
                 class="popup__msg-error popup__msg-title title__error"
                 id="input-about-error"
               ></p>
-              <button class="popup__save-button popup__button" type="submit">
+              <button
+                id="btnEditProfile"
+                class="popup__save-button"
+                type="submit"
+              >
                 Salvar
               </button>
             </form>
@@ -81,7 +85,7 @@
               />
             </button>
             <h3 class="popup__title">Novo local</h3>
-            <form class="popup__form popup__form" name="signup" novalidate>
+            <form class="popup__form add__form" name="signup" novalidate>
               <input
                 type="text"
                 class="popup__name-input popup__input"
@@ -106,8 +110,9 @@
                 id="input-url-error"
               ></p>
               <button
-                class="popup__save-button popup__save-button popup__button"
+                class="popup__save-button"
                 type="submit"
+                id="btnAddSubmit"
               >
                 Criar
               </button>
@@ -121,8 +126,9 @@
               <img
                 src="./images/avatar.png"
                 alt="Foto do Jacquinho"
-                class="profile__picture"
+                class="profile__content-picture"
               />
+              <button class="profile__content-pencil"></button>
             </div>
             <div class="profile__content-info">
               <div class="profile__content-header">
@@ -156,7 +162,62 @@
               </button>
             </div>
           </div>
+          <!------------ popup trash ------------>
+          <div class="popup" id="delete-card">
+            <div class="popup__container-delete">
+              <button class="popup__close-button">
+                <img
+                  src="./images/closeicon.png"
+                  alt="x para fechar o popup"
+                  class="popup__close"
+                />
+              </button>
+
+              <h3 class="popup__title">Tem certeza?</h3>
+              <button
+                id="temCerteza"
+                class="popup__delete-card popup__save-button"
+              >
+                Sim
+              </button>
+            </div>
+          </div>
+
           <!-- ----------- fim do popup da imagem ampliada ----------- -->
+          <!-- -------------------POPUP DO AVATAR----------------- -->
+          <div class="popup" id="edit-avatar">
+            <div class="popup__container">
+              <button class="popup__close-button">
+                <img
+                  src="./images/closeicon.png"
+                  alt="x para fechar o popup"
+                  class="popup__close"
+                />
+              </button>
+              <h3 class="popup__title">Alterar a foto do perfil</h3>
+              <form class="popup__form avatar__form" name="signup" novalidate>
+                <input
+                  class="popup__url-input popup__input"
+                  name="avatar"
+                  placeholder="Link do Avatar"
+                  type="url"
+                  required
+                  id="input-avatar"
+                />
+                <p
+                  class="popup__msg-error popup__msg-title"
+                  id="input-avatar-error"
+                ></p>
+                <button
+                  class="popup__save-button"
+                  type="submit"
+                  id="btnEditAvatar"
+                >
+                  Salvar
+                </button>
+              </form>
+            </div>
+          </div>
         </section>
       </main>
       <footer class="footer">© 2025 Around The U.S.</footer>
@@ -165,11 +226,7 @@
           <img class="element__image" src="" alt="" />
           <div class="element__info">
             <p class="element__title"></p>
-            <img
-              class="element__image-heart"
-              src="./images/Group.svg"
-              alt="imagem do coração"
-            />
+            <button class="element__image-heart"></button>
           </div>
           <img
             class="element__delete"
@@ -178,8 +235,7 @@
           />
         </div>
       </template>
-
-      <script type="module" src="./scripts/index.js"></script>
     </div>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
