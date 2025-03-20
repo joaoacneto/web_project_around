@@ -104,7 +104,6 @@ const popupWithImage = new PopupWithImage(".image__popup");
 popupWithImage.setEventListeners();
 
 const handleCardClick = (link, name) => {
-  console.log("entrou");
   popupWithImage.open(name, link);
 };
 
@@ -135,7 +134,6 @@ const userInfo = new UserInfo({
 const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
   const btnEditProfile = document.querySelector("#btnEditProfile");
   btnEditProfile.textContent = "Salvando...";
-  console.log(formData);
   api
     .setInfo(formData.name, formData.title)
     .then((result) => {
@@ -150,9 +148,8 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
     })
     .finally(() => {
       btnEditProfile.textContent = "Salvar";
+      popupEditProfile.close();
     });
-
-  popupEditProfile.close();
 });
 popupEditProfile.setEventListeners();
 
@@ -171,9 +168,8 @@ const popupEditAvatar = new PopupWithForm("#edit-avatar", (formData) => {
     })
     .finally(() => {
       btnEditAvatar.textContent = "Salvar";
+      popupEditAvatar.close();
     });
-
-  popupEditAvatar.close();
 });
 popupEditAvatar.setEventListeners();
 const btnOpenAvatar = document.querySelector(".profile__content-pencil");
@@ -208,9 +204,8 @@ const popupAddCard = new PopupWithForm("#add-card", (formData) => {
     })
     .finally(() => {
       btnAddSubmit.textContent = "Criar";
+      popupAddCard.close();
     });
-
-  popupAddCard.close();
 });
 popupAddCard.setEventListeners();
 

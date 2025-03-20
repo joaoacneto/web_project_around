@@ -27,7 +27,6 @@ export default class Api {
   }
 
   setInfo(name, about) {
-    console.log(name, about);
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.headers,
