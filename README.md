@@ -20,4 +20,7 @@ Refatoração do código javascript para torná-lo mais flexível, escalável e 
 Sprint 11
 Continuação da refatoração do código na qual foram adicionadas as classes Section, Popup, PopupWithForm, PopupWithImage, e UserInfo ao projeto.
 
-Github pages: https://joaoacneto.github.io/web_project_around/
+Sprint 12
+Continuação do projeto com a conexão dele ao servidor via api.
+
+Github pages: https://joaoacneto.github.io/web_project_around/src/
