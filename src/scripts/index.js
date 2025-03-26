@@ -27,13 +27,9 @@ api
 
 const handleCardLike = (cardId, isLiked) => {
   if (isLiked) {
-    api.setDisliked(cardId).then((result) => {
-      console.log(result);
-    });
+    api.setDisliked(cardId).then((result) => {});
   } else {
-    api.setLiked(cardId).then((result) => {
-      console.log(result);
-    });
+    api.setLiked(cardId).then((result) => {});
   }
 };
 
@@ -48,7 +44,9 @@ const handleCardDelete = (card, cardId) => {
       popupWithConfirmation.close();
     })
     .finally(() => {
-      temCerteza.textContent = "Sim";
+      setTimeout(() => {
+        temCerteza.textContent = "Sim";
+      }, 1000);
     });
 };
 
@@ -88,7 +86,7 @@ api
     cardSection.renderItems();
   })
   .catch((err) => {
-    console.log(err); // registra o erro no console
+    console.log(err);
   });
 
 const validate = {
@@ -137,7 +135,6 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
   api
     .setInfo(formData.name, formData.title)
     .then((result) => {
-      console.log(result);
       userInfo.setUserInfo({
         name: result.name,
         job: result.about,
@@ -147,8 +144,10 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
       console.log(err);
     })
     .finally(() => {
-      btnEditProfile.textContent = "Salvar";
-      popupEditProfile.close();
+      setTimeout(() => {
+        btnEditProfile.textContent = "Salvar";
+        popupEditProfile.close();
+      }, 2000);
     });
 });
 popupEditProfile.setEventListeners();
@@ -167,8 +166,10 @@ const popupEditAvatar = new PopupWithForm("#edit-avatar", (formData) => {
       console.log(err);
     })
     .finally(() => {
-      btnEditAvatar.textContent = "Salvar";
-      popupEditAvatar.close();
+      setTimeout(() => {
+        btnEditAvatar.textContent = "Salvar";
+        popupEditAvatar.close();
+      }, 1000);
     });
 });
 popupEditAvatar.setEventListeners();
@@ -203,8 +204,10 @@ const popupAddCard = new PopupWithForm("#add-card", (formData) => {
       cardSection.addItem(newCard.createCard());
     })
     .finally(() => {
-      btnAddSubmit.textContent = "Criar";
-      popupAddCard.close();
+      setTimeout(() => {
+        btnAddSubmit.textContent = "Criar";
+        popupAddCard.close();
+      }, 1000);
     });
 });
 popupAddCard.setEventListeners();
