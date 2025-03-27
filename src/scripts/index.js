@@ -44,9 +44,7 @@ const handleCardDelete = (card, cardId) => {
       popupWithConfirmation.close();
     })
     .finally(() => {
-      setTimeout(() => {
-        temCerteza.textContent = "Sim";
-      }, 1000);
+      temCerteza.textContent = "Sim";
     });
 };
 
@@ -144,10 +142,8 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
       console.log(err);
     })
     .finally(() => {
-      setTimeout(() => {
-        btnEditProfile.textContent = "Salvar";
-        popupEditProfile.close();
-      }, 2000);
+      btnEditProfile.textContent = "Salvar";
+      popupEditProfile.close();
     });
 });
 popupEditProfile.setEventListeners();
